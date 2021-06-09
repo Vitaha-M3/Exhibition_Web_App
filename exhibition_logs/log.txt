@@ -1,0 +1,36 @@
+2021-06-09 03:38:17 [http-bio-4949-exec-4} ERROR com.exhibitions.dao.serviceDao.UserDaoService - org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2021-06-09 03:38:23 [http-bio-4949-exec-6} ERROR com.exhibitions.dao.serviceDao.UserDaoService - org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2021-06-09 03:38:34 [http-bio-4949-exec-1} ERROR com.exhibitions.dao.serviceDao.UserDaoService - org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2021-06-09 03:38:38 [http-bio-4949-exec-1} ERROR com.exhibitions.dao.serviceDao.UserDaoService - Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2021-06-09 03:38:57 [http-bio-4949-exec-7} ERROR com.exhibitions.dao.serviceDao.UserDaoService - org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2021-06-09 03:39:01 [http-bio-4949-exec-7} ERROR com.exhibitions.dao.serviceDao.UserDaoService - Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2021-06-09 03:39:10 [http-bio-4949-exec-9} ERROR com.exhibitions.dao.serviceDao.UserDaoService - org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2021-06-09 03:39:14 [http-bio-4949-exec-2} ERROR com.exhibitions.dao.serviceDao.UserDaoService - org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2021-06-09 03:39:32 [http-bio-4949-exec-8} ERROR com.exhibitions.dao.serviceDao.UserDaoService - org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2021-06-09 03:39:45 [http-bio-4949-exec-10} ERROR com.exhibitions.dao.serviceDao.UserDaoService - org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2021-06-09 03:47:50 [http-bio-4949-exec-9} ERROR com.exhibitions.dao.serviceDao.UserDaoService - Parameter index out of range (5 > number of parameters, which is 4).
+2021-06-09 03:48:10 [http-bio-4949-exec-3} ERROR com.exhibitions.dao.serviceDao.UserDaoService - Parameter index out of range (5 > number of parameters, which is 4).
+2021-06-09 04:14:51 [http-bio-4949-exec-8} ERROR com.exhibitions.dao.serviceDao.UserDaoService - Parameter index out of range (5 > number of parameters, which is 4).
+2021-06-09 04:14:51 [http-bio-4949-exec-7} ERROR com.exhibitions.dao.serviceDao.UserDaoService - Parameter index out of range (5 > number of parameters, which is 4).
+2021-06-09 04:27:22 [http-bio-4949-exec-9} ERROR com.exhibitions.dao.serviceDao.UserDaoService - Parameter index out of range (5 > number of parameters, which is 4).
+2021-06-09 04:35:37 [http-bio-4949-exec-2} ERROR com.exhibitions.dao.serviceDao.UserDaoService - Parameter index out of range (5 > number of parameters, which is 4).
