@@ -17,7 +17,7 @@ public class ClientFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         User user = (User) request.getSession().getAttribute("user");
-        String[] uri = request.getRequestURI().split("/Exhibition");
+        String[] uri = request.getRequestURI().split("/");
         if(access(user, uri[uri.length - 1])) {
             filterChain.doFilter(servletRequest, servletResponse);
             return;

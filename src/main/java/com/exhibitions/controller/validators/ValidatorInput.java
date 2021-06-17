@@ -15,5 +15,4 @@ public class ValidatorInput {
     public static boolean validateString(String value) {
         return !(value == null || value.isEmpty());
     }
-
 }

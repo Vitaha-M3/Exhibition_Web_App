@@ -3,13 +3,13 @@ package com.exhibitions.dao.serviceDao;
 import com.exhibitions.dao.DBManager;
 import com.exhibitions.dao.ExpositionDao;
 import com.exhibitions.entity.Exposition;
-import com.exhibitions.entity.User;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,13 +19,13 @@ public class ExpositionDaoService implements ExpositionDao {
     private static final Logger logger = LogManager.getLogger();
 
     @Override
-    public void insertExposition(String name, Integer price, Date data_time, Date period, String rooms) {
+    public void insertExposition(String name, Integer price, java.util.Date dataTime, java.util.Date period, String rooms) {
         Connection con = null;
         try {
             con = DBManager.getConnection();
             con.setAutoCommit(false);
             PreparedStatement insertSt = con.prepareStatement(INSERT_EXPOSITION);
-            initInsertExpoSt(insertSt, name, price, data_time, period, rooms);
+            initInsertExpoSt(insertSt, name, price, dataTime, period, rooms);
             insertSt.executeUpdate();
             con.commit();
         } catch (SQLException e) {
@@ -39,8 +39,8 @@ public class ExpositionDaoService implements ExpositionDao {
     private void initInsertExpoSt(PreparedStatement insertSt, String name, Integer price, Date data_time, Date period, String rooms) throws SQLException {
         insertSt.setString(1, name);
         insertSt.setInt(2, price);
-        insertSt.setDate(3, data_time);
-        insertSt.setDate(4, period);
+        insertSt.setDate(3,  new java.sql.Date(data_time.getTime()));
+        insertSt.setDate(4, new java.sql.Date(period.getTime()));
         insertSt.setString(5, rooms);
     }
 
@@ -51,6 +51,7 @@ public class ExpositionDaoService implements ExpositionDao {
         try {
             con = DBManager.getConnection();
             PreparedStatement updateSt = con.prepareStatement(DELETE_EXPOSITION);
+            updateSt.setInt(1, id);
             rowsUpdated = updateSt.executeUpdate();
         } catch (SQLException e) {
             logger.log(Level.ERROR, "ExpositionDAOService delete: ", e);
@@ -84,7 +85,7 @@ public class ExpositionDaoService implements ExpositionDao {
             expo.setId(set.getInt("id"));
             expo.setName(set.getString("name"));
             expo.setPrice(set.getInt("price"));
-            expo.setData_time(set.getDate("date_time"));
+            expo.setDate(set.getDate("date_time"));
             expo.setPeriod(set.getDate("period"));
             expo.setRooms(set.getString("rooms"));
         }
@@ -92,20 +93,21 @@ public class ExpositionDaoService implements ExpositionDao {
     }
 
     @Override
-    public Optional<Exposition> findByName(String name) {
+    public List<Exposition> findByName(String name) {
         Connection con = null;
-        Exposition expo = null;
+        List<Exposition> expoByName = new ArrayList<>();
         try {
             con = DBManager.getConnection();
-            PreparedStatement selectStatement = con.prepareStatement(SELECT_EXPOSITION_BY_NAME);
-            selectStatement.setString(1, name);
-            expo = initExpo(selectStatement);
+            PreparedStatement getAll =  con.prepareStatement(SELECT_EXPOSITION_BY_NAME);
+            getAll.setString(1, name);
+            ResultSet set = getAll.executeQuery();
+            initList(set,expoByName);
         } catch (SQLException e) {
             logger.log(Level.ERROR, e.getMessage());
         } finally {
             DBManager.closeConnection(con);
         }
-        return Optional.ofNullable(expo);
+        return expoByName;
     }
 
     @Override
@@ -131,7 +133,8 @@ public class ExpositionDaoService implements ExpositionDao {
             expo.setId(set.getInt("id"));
             expo.setName(set.getString("name"));
             expo.setPrice(set.getInt("price"));
-            expo.setData_time(set.getDate("date_time"));
+            expo.setDate(set.getDate("date_time"));
+            //expo.setTime(expo.getDate());
             expo.setPeriod(set.getDate("period"));
             expo.setRooms(set.getString("rooms"));
             expositions.add(expo);

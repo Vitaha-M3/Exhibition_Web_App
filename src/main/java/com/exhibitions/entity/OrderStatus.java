@@ -16,9 +16,8 @@ public class OrderStatus {
     public OrderStatus (int id){
         this.id = id;
         switch (id){
-            case 1: this.status = "Забронирован";
-            case 2: this.status = "В обработке";
-            case 3: this.status = "Оплачено";
+            case 1: this.status = "В обработке";
+            case 2: this.status = "Оплачено";
         }
     }
 

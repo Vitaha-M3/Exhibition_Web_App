@@ -18,17 +18,17 @@ public class LoginServiceDefault implements LoginService {
         user = user.filter(user1 -> password.equals(user1.getPassword()));
         Map<String, Object> map = new HashMap<>();
         map.put("user", user);
-//        User usermy = user.orElse(null);
-//        if(usermy != null) {
-//            switch(usermy.getAccess()) {
-//                case USER:
-//                    map.put("catalog_exposition", expoDao.getAll());
-//                    break;
-//                case ADMIN:
-//                    map.put("catalog_exposition", expoDao.getAll());
-//                    break;
-//            }
-//        }
+        User usermy = user.orElse(null);
+        if(usermy != null) {
+            switch(usermy.getAccess()) {
+                case USER:
+                    map.put("catalog_exposition", expoDao.getAll());
+                    break;
+                case ADMIN:
+                    map.put("catalog_exposition", expoDao.getAll());
+                    break;
+            }
+        }
         return map;
     }
 

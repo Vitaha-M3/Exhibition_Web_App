@@ -8,18 +8,19 @@ public class Exposition {
     private int id;
     private String name;
     private int price;
-    private Date data_time;
+    private Date date;
     private Date period;
     private String rooms;
 
     public Exposition() {
     }
 
-    public Exposition(int id, String name, int price, Date data_time, Date period, String rooms) {
+    public Exposition(int id, String name, int price, Date date_time, Date period, String rooms) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.data_time = data_time;
+        this.date = date_time;
+        //time = setTime(date);
         this.period = period;
         this.rooms = rooms;
     }
@@ -48,12 +49,12 @@ public class Exposition {
         this.price = price;
     }
 
-    public Date getData_time() {
-        return data_time;
+    public Date getDate() {
+        return date;
     }
 
-    public void setData_time(Date data_time) {
-        this.data_time = data_time;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public Date getPeriod() {
@@ -80,7 +81,7 @@ public class Exposition {
         return id == that.id &&
                 price == that.price &&
                 Objects.equals(name, that.name) &&
-                Objects.equals(data_time, that.data_time) &&
+                Objects.equals(date, that.date) &&
                 Objects.equals(period, that.period) &&
                 Objects.equals(rooms, that.rooms);
     }
@@ -91,7 +92,7 @@ public class Exposition {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
-                ", data_time=" + data_time +
+                ", data_time=" + date +
                 ", period=" + period +
                 ", rooms=" + rooms +
                 '}';

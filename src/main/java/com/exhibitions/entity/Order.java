@@ -5,21 +5,21 @@ import java.util.Optional;
 
 public class Order {
 
-    private int id;
-    private Optional<User> user;
-    private  int billing;
-    private OrderStatus orderStatus;
-    private Optional<Exposition> expositionId;
+    private Integer id;
+    private Integer user_id;
+    private  Integer billing;
+    private Integer orderStatus_id;
+    private Integer exposition_id;
 
     public Order() {
     }
 
-    public Order(int id, User user, int billing, OrderStatus orderStatus, Exposition exposition) {
+    public Order(Integer id,  Integer user_id, Integer billing, Integer orderStatus_id, Integer exposition_id) {
         this.id = id;
-        this.user = Optional.ofNullable(user);
+        this.user_id = user_id;
         this.billing = billing;
-        this.orderStatus = orderStatus;
-        this.expositionId = Optional.ofNullable(exposition);
+        this.orderStatus_id = orderStatus_id;
+        this.exposition_id = exposition_id;
     }
 
     public int getId() {
@@ -30,12 +30,12 @@ public class Order {
         this.id = id;
     }
 
-    public Optional<User> getUser() {
-        return user ;
+    public Integer getUser() {
+        return user_id ;
     }
 
-    public void setUser(Optional<User> user) {
-        this.user = user;
+    public void setUser(Integer user_id) {
+        this.user_id = user_id;
     }
 
     public int getBilling() {
@@ -46,20 +46,20 @@ public class Order {
         this.billing = billing;
     }
 
-    public String getOrderStatus() {
-        return orderStatus.getStatus();
+    public Integer getOrderStatus_id() {
+        return orderStatus_id;
     }
 
-    public void setOrderStatus(OrderStatus orderStatus) {
-        this.orderStatus = orderStatus;
+    public void setOrderStatus_id(Integer orderStatus_id) {
+        this.orderStatus_id = orderStatus_id;
     }
 
-    public Optional<Exposition> getExposition() {
-        return expositionId;
+    public Integer getExposition() {
+        return exposition_id;
     }
 
-    public void setExposition(Optional<Exposition> exposition) {
-        this.expositionId = exposition;
+    public void setExposition(Integer exposition) {
+        this.exposition_id = exposition;
     }
 
     @Override
@@ -69,19 +69,19 @@ public class Order {
         Order order = (Order) o;
         return id == order.id &&
                 billing == order.billing &&
-                Objects.equals(user, order.user) &&
-                Objects.equals(orderStatus, order.orderStatus) &&
-                Objects.equals(expositionId, order.expositionId);
+                Objects.equals(user_id, order.user_id) &&
+                Objects.equals(orderStatus_id, order.orderStatus_id) &&
+                Objects.equals(exposition_id, order.exposition_id);
     }
 
     @Override
     public String toString() {
         return "OrderDao{" +
                 "id=" + id +
-                ", user_id" + user.get() +
+                ", user_id" + user_id +
                 ", billing=" + billing +
-                ", orderStatus=" + orderStatus +
-                ", exposition=" + expositionId +
+                ", orderStatus=" + orderStatus_id +
+                ", exposition=" + exposition_id +
                 '}';
     }
 }

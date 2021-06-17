@@ -76,10 +76,10 @@ public class UserDaoService implements UserDao {
     }
 
     private void initInsertSt(PreparedStatement insSt, String login, String email, String password, String name) throws SQLException {
-        insSt.setString(1,login);
-        insSt.setString(2,email);
-        insSt.setString(3,password);
-        insSt.setString(4,name);
+            insSt.setString(1, login);
+            insSt.setString(2, email);
+            insSt.setString(3, password);
+            insSt.setString(4, name);
     }
 
     @Override

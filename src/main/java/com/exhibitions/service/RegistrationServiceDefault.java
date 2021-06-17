@@ -5,8 +5,6 @@ import com.exhibitions.entity.User;
 
 import javax.naming.NamingException;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 public class RegistrationServiceDefault implements RegistrationService {
@@ -18,8 +16,10 @@ public class RegistrationServiceDefault implements RegistrationService {
     public boolean registration(String login, String email, String password, String name) throws SQLException, NamingException {
         Optional<User> user = userDao.findByLogin(login);
         if(user.isPresent())
-        return false;
-        else userDao.insertUser(login, email, password, name);
-        return true;
+            return false;
+        else{
+            userDao.insertUser(login, email, password, name);
+            return true;
+        }
     }
 }
