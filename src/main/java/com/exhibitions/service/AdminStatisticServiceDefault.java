@@ -1,11 +1,12 @@
 package com.exhibitions.service;
 
 import com.exhibitions.dao.serviceDao.StatisticDaoService;
+import com.exhibitions.service.interfaceService.AdminStatisticService;
 
 import java.util.List;
 import java.util.Map;
 
-public class AdminStatisticServiceDefault implements AdminStatisticService  {
+public class AdminStatisticServiceDefault implements AdminStatisticService {
     StatisticDaoService statisticDaoService = new StatisticDaoService();
 
     @Override

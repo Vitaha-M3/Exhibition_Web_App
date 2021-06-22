@@ -7,11 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:include page="bodyStyle.jsp"/>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="resources"/>
 <div>
 <footer>
-    <hr>
+    <hr class="hr-shelf">
     <p style="text-align: center; border-style: groove; border-color: cadetblue; background: cadetblue">
         @Copyright
         <fmt:message key="footer"/>

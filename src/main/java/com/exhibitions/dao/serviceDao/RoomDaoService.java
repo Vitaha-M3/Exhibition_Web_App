@@ -14,7 +14,7 @@ import static com.exhibitions.constants.SQLConstants.DELETE_ROOM;
 import static com.exhibitions.constants.SQLConstants.INSERT_ROOM;
 
 public class RoomDaoService implements RoomDao {
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger(RoomDaoService.class);
 
     @Override
     public void inserRoom(Integer id_room, String room) {

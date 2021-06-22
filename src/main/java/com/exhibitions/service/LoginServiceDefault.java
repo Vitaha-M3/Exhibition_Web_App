@@ -3,6 +3,7 @@ package com.exhibitions.service;
 import com.exhibitions.dao.serviceDao.ExpositionDaoService;
 import com.exhibitions.dao.serviceDao.UserDaoService;
 import com.exhibitions.entity.User;
+import com.exhibitions.service.interfaceService.LoginService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +23,9 @@ public class LoginServiceDefault implements LoginService {
         if(usermy != null) {
             switch(usermy.getAccess()) {
                 case USER:
-                    map.put("catalog_exposition", expoDao.getAll());
+                    map.put("catalog_exposition", expoDao.getLimitRows(0,3));
+                    map.put("noOfPages",Math.ceil((new UserServiceDefault().getCountAllExpo()*1.0/3)));
+                    map.put("currentPageTable", 1);
                     break;
                 case ADMIN:
                     map.put("catalog_exposition", expoDao.getAll());

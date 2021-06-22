@@ -1,1 +1,4 @@
+com\exhibiton\controller\command\ChangeLanguageCommandTest.class
+com\exhibiton\controller\command\LogOutCommandTest.class
 ConnectionTest.class
+com\exhibiton\controller\command\GoToRegistrationCommandTest.class

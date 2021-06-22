@@ -23,4 +23,18 @@ public interface ExpositionDao {
     //get all exposition
     List<Exposition> getAll();
 
+    //sort buy price
+    List<Exposition> getAllSort();
+
+    //sort by price desk
+    List<Exposition> getAllSortDesk();
+
+    //get limited count rows exposition
+    List<Exposition> getLimitRows(Integer firstRow, Integer rowCount);
+
+    //get count all rows exposition in DB
+    Integer getCountAllRows();
+
+
+
 }

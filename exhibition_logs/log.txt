@@ -82,3 +82,14 @@ java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a par
 2021-06-15 16:29:19 [http-bio-4949-exec-8} ERROR com.exhibitions.dao.serviceDao.StatisticDaoService - Before start of result set
 2021-06-15 16:37:42 [http-bio-4949-exec-9} ERROR com.exhibitions.dao.serviceDao.StatisticDaoService - Before start of result set
 2021-06-15 16:43:34 [http-bio-4949-exec-10} ERROR com.exhibitions.dao.serviceDao.StatisticDaoService - Before start of result set
+2021-06-19 18:15:16 [http-bio-4949-exec-4} ERROR com.exhibitions.dao.serviceDao.UserDaoService - org.apache.tomcat.dbcp.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2021-06-20 03:42:15 [http-bio-4949-exec-2} ERROR com.exhibitions.dao.serviceDao.ExpositionDaoService - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-6, 3' at line 1
+2021-06-20 03:43:02 [http-bio-4949-exec-4} ERROR com.exhibitions.dao.serviceDao.ExpositionDaoService - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-6, 3' at line 1
+2021-06-20 16:24:04 [http-bio-4949-exec-2} ERROR com.exhibitions.dao.serviceDao.ExpositionDaoService - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-6, 3' at line 1
+2021-06-20 16:42:49 [http-bio-4949-exec-2} ERROR com.exhibitions.dao.serviceDao.ExpositionDaoService - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-6, 3' at line 1
+2021-06-20 16:42:53 [http-bio-4949-exec-2} ERROR com.exhibitions.dao.serviceDao.ExpositionDaoService - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-3, 3' at line 1
+2021-06-20 16:44:26 [http-bio-4949-exec-7} ERROR com.exhibitions.dao.serviceDao.ExpositionDaoService - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-6, 3' at line 1
+2021-06-20 16:45:00 [http-bio-4949-exec-8} ERROR com.exhibitions.dao.serviceDao.ExpositionDaoService - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-6, 3' at line 1
+2021-06-20 16:45:19 [http-bio-4949-exec-8} ERROR com.exhibitions.dao.serviceDao.ExpositionDaoService - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-6, 3' at line 1

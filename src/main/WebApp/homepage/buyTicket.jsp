@@ -21,28 +21,28 @@
 <body>
 <jsp:include page="/base/header.jsp"/>
 <div align="center">
-<h2 align="center">КУПИТЬ БИЛЕТ</h2>
+<h2 align="center"><fmt:message key="yourTicket"/></h2>
 <div style="flex: auto; width: 40%; align-content: center; border-style: solid; border-radius: 20px">
     <br/>
-    <label>Your name: </label><b>${user.name}</b>
+    <label><fmt:message key="yourName"/>: </label><b>${user.name}</b>
     <br><br/>
-    <label>Your email: <b>${user.email}</b></label>
+    <label><fmt:message key="yourEmail"/>: <b>${user.email}</b></label>
     <br><br/>
-    <label>Purchase date : <b><fmt:formatDate type="both" value="<%= new Date()%>"/></b></label>
+    <label><fmt:message key="purchasedDate"/>: <b><fmt:formatDate type="both" value="<%= new Date()%>"/></b></label>
     <br><br/>
-    <label>Exposition theme: <b>${ticketOnExpo.name}</b></label>
+    <label><fmt:message key="themeExpo"/>: <b>${ticketOnExpo.name}</b></label>
     <br><br/>
-    <label>Start date of the exhibition : <b><fmt:formatDate type="date" value="${ticketOnExpo.date}"/></b></label>
+    <label><fmt:message key="ticketStartDateExpo"/>: <b><fmt:formatDate type="date" value="${ticketOnExpo.date}"/></b></label>
     <br><br/>
-    <label>Exposition end date : <b><fmt:formatDate type="date" value="${ticketOnExpo.period}"/></b></label>
+    <label><fmt:message key="ticketsEndDate"/>: <b><fmt:formatDate type="date" value="${ticketOnExpo.period}"/></b></label>
     <br><br/>
-    <label>Hall : <b>${ticketOnExpo.rooms}</b></label>
+    <label><fmt:message key="hall"/>: <b>${ticketOnExpo.rooms}</b></label>
     </table>
     <br><br/>
-    <h3> <label>Price: ${ticketOnExpo.price}UAH</label></h3>
+    <h3> <label><fmt:message key="tickPrice"/>: ${ticketOnExpo.price}UAH</label></h3>
     <c:if test="${userLoggedIn}">
-    <form action="/Exhibition" method="post">
-    <button style="flex: auto; width: 30%; background-color: cornflowerblue; margin-bottom: 20px" type="submit" name="command" value="buy_service">BUY</button>
+    <form action="/Exhibition" method="get">
+    <button style="flex: auto; width: 30%; background-color: cornflowerblue; margin-bottom: 20px" type="submit" name="command" value="buyService"><fmt:message key="buttonBuy"/></button>
     <input type="hidden" name="finalBuy" value="true">
         <input type="hidden" name="expoID" value="${ticketOnExpo.id}">
     </form>

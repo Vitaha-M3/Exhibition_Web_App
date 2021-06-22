@@ -20,7 +20,6 @@ public class Exposition {
         this.name = name;
         this.price = price;
         this.date = date_time;
-        //time = setTime(date);
         this.period = period;
         this.rooms = rooms;
     }

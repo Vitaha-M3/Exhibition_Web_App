@@ -16,7 +16,7 @@ import java.util.Optional;
 import static com.exhibitions.constants.SQLConstants.*;
 
 public class ExpositionDaoService implements ExpositionDao {
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger(ExpositionDaoService.class);
 
     @Override
     public void insertExposition(String name, Integer price, java.util.Date dataTime, java.util.Date period, String rooms) {
@@ -127,6 +127,78 @@ public class ExpositionDaoService implements ExpositionDao {
         return expositions;
     }
 
+    @Override
+    public List<Exposition> getAllSort(){
+        Connection connect = null;
+        List<Exposition> expoSorted = new ArrayList<>();
+        try {
+            connect = DBManager.getConnection();
+            Statement getAll = connect.createStatement();
+            ResultSet set = getAll.executeQuery(GET_ALL_EXPO_SORTED);
+            initList(set, expoSorted);
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, e.getMessage());
+        } finally {
+            DBManager.closeConnection(connect);
+        }
+        return expoSorted;
+    }
+
+    @Override
+    public List<Exposition> getAllSortDesk(){
+        Connection con = null;
+        List<Exposition> expositions = new ArrayList<>();
+        try {
+            con = DBManager.getConnection();
+            Statement getAllSortDesk = con.createStatement();
+            ResultSet set = getAllSortDesk.executeQuery(GET_ALL_EXPO_SORTED_DESK);
+            initList(set, expositions);
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, e.getMessage());
+        } finally {
+            DBManager.closeConnection(con);
+        }
+        return expositions;
+    }
+
+    @Override
+    public List<Exposition> getLimitRows(Integer firstRow, Integer rowCount){
+        Connection connection = null;
+        List<Exposition> expoLimit = new ArrayList<>();
+        try {
+            connection = DBManager.getConnection();
+            PreparedStatement getLimitRows =  connection.prepareStatement(GET_LIMIT_ROWS_EXPOSITION);
+            getLimitRows.setInt(1, firstRow);
+            getLimitRows.setInt(2,rowCount);
+            ResultSet set = getLimitRows.executeQuery();
+            initList(set,expoLimit);
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, e.getMessage());
+        } finally {
+            DBManager.closeConnection(connection);
+        }
+        return expoLimit;
+    }
+
+    @Override
+    public Integer getCountAllRows(){
+        Connection con = null;
+        Integer expoCount = null;
+        try {
+            con = DBManager.getConnection();
+            PreparedStatement getCountRows =  con.prepareStatement(GET_COUNT_ALL_ROW);
+            ResultSet set = getCountRows.executeQuery();
+            if(set.next()){
+                expoCount = set.getInt(1);
+            }
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, e.getMessage());
+        } finally {
+            DBManager.closeConnection(con);
+        }
+        return expoCount;
+    }
+
     private void initList(ResultSet set, List<Exposition> expositions) throws SQLException {
         while (set.next()){
             Exposition expo = new Exposition();
@@ -134,7 +206,6 @@ public class ExpositionDaoService implements ExpositionDao {
             expo.setName(set.getString("name"));
             expo.setPrice(set.getInt("price"));
             expo.setDate(set.getDate("date_time"));
-            //expo.setTime(expo.getDate());
             expo.setPeriod(set.getDate("period"));
             expo.setRooms(set.getString("rooms"));
             expositions.add(expo);

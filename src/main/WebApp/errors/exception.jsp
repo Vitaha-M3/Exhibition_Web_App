@@ -11,7 +11,7 @@
 <fmt:setBundle basename="resources"/>
 <html>
 <head>
-    <title>Title</title>
+    <title>Error</title>
 </head>
 <body>
 <h1><fmt:message key="exceptionError"/> </h1>

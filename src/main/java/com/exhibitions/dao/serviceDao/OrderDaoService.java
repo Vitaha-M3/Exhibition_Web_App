@@ -16,7 +16,7 @@ import java.util.Optional;
 import static com.exhibitions.constants.SQLConstants.*;
 
 public class OrderDaoService implements OrderDao {
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger(OrderDaoService.class);
 
     @Override
     public List<Order> getAllOrders() {

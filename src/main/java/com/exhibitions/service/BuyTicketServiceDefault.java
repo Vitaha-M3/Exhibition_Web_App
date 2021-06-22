@@ -3,6 +3,7 @@ package com.exhibitions.service;
 import com.exhibitions.dao.serviceDao.ExpositionDaoService;
 import com.exhibitions.dao.serviceDao.OrderDaoService;
 import com.exhibitions.entity.Exposition;
+import com.exhibitions.service.interfaceService.BuyTicketService;
 
 import javax.naming.NamingException;
 import java.sql.SQLException;

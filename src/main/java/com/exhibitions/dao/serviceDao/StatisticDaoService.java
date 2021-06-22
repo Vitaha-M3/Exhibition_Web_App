@@ -15,7 +15,7 @@ import java.util.Map;
 import static com.exhibitions.constants.SQLConstants.*;
 
 public class StatisticDaoService implements StatisticDao {
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger(StatisticDaoService.class);
 
     //Returns an integer as the number of successful payments for all users
     @Override

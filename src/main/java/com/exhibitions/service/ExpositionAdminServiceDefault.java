@@ -2,6 +2,7 @@ package com.exhibitions.service;
 
 import com.exhibitions.controller.validators.DateValidator;
 import com.exhibitions.dao.serviceDao.ExpositionDaoService;
+import com.exhibitions.service.interfaceService.ExpositionAdminService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

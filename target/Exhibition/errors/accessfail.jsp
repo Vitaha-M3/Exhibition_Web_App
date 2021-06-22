@@ -12,7 +12,7 @@
 <fmt:setBundle basename="resources"/>
 <html>
 <head>
-    <title>Title</title>
+    <title>Error</title>
 </head>
 <body>
 <jsp:include page="../base/header.jsp"/>

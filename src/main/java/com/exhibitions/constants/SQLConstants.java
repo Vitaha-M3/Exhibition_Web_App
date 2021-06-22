@@ -10,9 +10,9 @@ public class SQLConstants {
     public static final String UPDATE_USER = "UPDATE user SET login = ?, email = ?, password = ?, name = ?,  access_id = 2" +
             "WHERE id = ?;";
     public static final String GET_ALL_USERS = "SELECT * FROM user;";
-    public static final String FIND_MY_TICKETS = "SELECT orders.id, exposition.name, exposition.period, exposition.rooms, exposition.price " +
-            "FROM orders JOIN user ON orders.user_id = user.id JOIN exposition ON orders.exposition_id = exposition.id " +
-            "WHERE status_id=2 and period>now() and user.id = ?;";
+//    public static final String FIND_MY_TICKETS = "SELECT orders.id, exposition.name, exposition.period, exposition.rooms, exposition.price " +
+//            "FROM orders JOIN user ON orders.user_id = user.id JOIN exposition ON orders.exposition_id = exposition.id " +
+//            "WHERE status_id=2 and period>now() and user.id = ?;";
 
     /** Script for Room */
     public static final String INSERT_ROOM = "INSERT INTO rooms (id_room, room) VALUES (?, ?);";
@@ -25,6 +25,11 @@ public class SQLConstants {
     public static final String SELECT_EXPOSITION_BY_ID = "SELECT * FROM exposition WHERE id = ?";
     public static final String SELECT_EXPOSITION_BY_NAME = "SELECT * FROM exposition WHERE name = ?";
     public static final String GET_ALL_EXPOSITION = "SELECT * FROM exposition;";
+    public static final String GET_LIMIT_ROWS_EXPOSITION = "SELECT * FROM exposition LIMIT ?, ?;";
+    public static final String GET_COUNT_ALL_ROW = "SELECT COUNT(*) FROM exposition;";
+    //sort
+    public static final String GET_ALL_EXPO_SORTED = "SELECT * FROM exposition ORDER BY price;";
+    public static final String GET_ALL_EXPO_SORTED_DESK = "SELECT * FROM exposition ORDER BY price DESC;";
 
     /** Script for Orders*/
     public static final String GET_ALL_ORDERS = "SELECT * FROM orders;";

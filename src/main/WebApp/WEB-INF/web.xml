@@ -23,10 +23,10 @@
         <location>/errors/404.jsp</location>
     </error-page>
 
-<!--    <error-page>-->
-<!--        <exception-type>java.lang.Exception</exception-type>-->
-<!--        <location>/errors/exception.jsp</location>-->
-<!--    </error-page>-->
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/errors/exception.jsp</location>
+    </error-page>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
@@ -51,7 +51,6 @@
             <param-value>UTF-8</param-value>
         </init-param>
     </filter>
-
     <filter-mapping>
         <filter-name>CharsetFilter</filter-name>
         <url-pattern>/*</url-pattern>

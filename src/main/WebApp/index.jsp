@@ -20,7 +20,7 @@
 </head>
 <body>
  <jsp:include page="base/header.jsp"/>
- <br/>
+ <br><br/>
 <c:choose>
     <c:when test="${userLoggedIn}">
         <p aline="center"><a href="/Exhibition?command=main"><fmt:message key="homePage"/></a></p>
@@ -28,6 +28,9 @@
     <c:otherwise>
         <h3 align="center"><fmt:message key="signIn"/></h3>
  <div align="center" style="border-style: solid; border-radius: 10px; padding-bottom: 20px; padding-top: 20px; margin-bottom: 20px">
+     <c:if test="${errorLogin}">
+         <p style="color: red">${errorMessage}</p>
+     </c:if>
      <form action="/Exhibition" method="post">
          <label><input name="login" type="text" placeholder="<fmt:message key="login"/>" required/></label>
          <br><br/>
@@ -36,7 +39,7 @@
          <button type="submit"><fmt:message key="login"/> </button>
          <input type="hidden" name="command" value="login"/>
      </form>
-<%--     <p style="color: red">${errorMessage}</p>--%>
+
  </div>
       <div style="display: flex; align-items: center; justify-content: center">
           <form action="/Exhibition" method="post">

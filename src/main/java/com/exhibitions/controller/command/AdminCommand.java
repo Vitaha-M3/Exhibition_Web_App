@@ -28,7 +28,9 @@ public class AdminCommand implements Command {
         Map<String, Object> map = new HashMap<>();
         User admin = (User)request.getSession().getAttribute("user");
 
-        /** For statistic block */
+        /**
+         * For statistic block
+         */
         //show statistic
         if(request.getParameter("showStatistic")!=null){
             request.setAttribute("showMeStatistic", true);
@@ -62,7 +64,9 @@ public class AdminCommand implements Command {
         }
 
 
-        /** For buttons left block*/
+        /**
+         * For buttons left block
+         */
         //add new exposition
         if(request.getParameter("addNewExposition")!=null){
             String dateTime = request.getParameter("dateTime");
@@ -103,7 +107,9 @@ public class AdminCommand implements Command {
         }
 
 
-        /** Check access*/
+        /**
+         * Check access
+         */
         if(admin!=null && admin.getAccess().toString().toLowerCase().equals("admin")) {
             map.put(PAGE, ADMIN_JSP);
         }else {

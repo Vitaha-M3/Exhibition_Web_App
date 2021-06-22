@@ -17,6 +17,13 @@ import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The main servlet acts as a command controller,
+ * processes requests depending on which command came from the user
+ * @see javax.servlet.http.HttpServlet
+ * @author Vitalii
+ */
+
 @WebServlet(name = "MainServlet", value = "/Exhibition")
 public class MainServlet extends HttpServlet {
     private static final Logger logger = LogManager.getLogger();
@@ -29,7 +36,7 @@ public class MainServlet extends HttpServlet {
     private static final String REGISTRATION = "registration";
     private static final String GO_TO_REGISTRATION = "go_to_registration";
     private static final String USER_HOME = "user_service";
-    private static final String BUY = "buy_service";
+    private static final String BUY = "buyService";
     private static final String ADMIN = "adminService";
     private Map<String, Command> commands;
 

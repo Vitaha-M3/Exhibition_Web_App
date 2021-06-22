@@ -16,7 +16,7 @@ import java.util.Optional;
 import static com.exhibitions.constants.SQLConstants.*;
 
 public class UserDaoService implements UserDao {
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger(UserDaoService.class);
 
     private static final String ID = "id";
     private static final String LOGIN = "login";
@@ -25,6 +25,7 @@ public class UserDaoService implements UserDao {
     private static final String EMAIL = "email";
     private static final String NAME = "name";
 
+    @Override
     public Optional<User> findByLogin(String login) {
         Connection con = null;
         User user = null;
@@ -41,6 +42,7 @@ public class UserDaoService implements UserDao {
         return Optional.ofNullable(user);
     }
 
+    @Override
     public Optional<User> findById(Integer userid) {
         Connection con = null;
         User user = null;

@@ -2,6 +2,7 @@ package com.exhibitions.service;
 
 import com.exhibitions.dao.serviceDao.UserDaoService;
 import com.exhibitions.entity.User;
+import com.exhibitions.service.interfaceService.RegistrationService;
 
 import javax.naming.NamingException;
 import java.sql.SQLException;

@@ -1,7 +1,12 @@
 package com.exhibitions.service;
 
 import com.exhibitions.dao.serviceDao.ExpositionDaoService;
+import com.exhibitions.dao.serviceDao.RoomDaoService;
 import com.exhibitions.entity.Exposition;
+import com.exhibitions.service.interfaceService.UserService;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.naming.NamingException;
 import java.sql.SQLException;
@@ -11,6 +16,8 @@ import java.util.*;
 
 public class UserServiceDefault implements UserService {
     ExpositionDaoService expoDao = new ExpositionDaoService();
+    private static final Logger logger = LogManager.getLogger(UserServiceDefault.class);
+    long countSort =0;
 
     @Override
     public List<Exposition> filterByTheme(String theme) throws SQLException, NamingException {
@@ -39,6 +46,7 @@ public class UserServiceDefault implements UserService {
         try {
             dateSearc = formatter.parse(date);
         } catch (ParseException e) {
+            logger.log(Level.ERROR, e.getMessage());
             e.printStackTrace();
         }
 
@@ -47,6 +55,7 @@ public class UserServiceDefault implements UserService {
             try {
                 start = formatter.parse(ex.getDate().toString());
             } catch (ParseException e) {
+                logger.log(Level.ERROR, e.getMessage());
                 e.printStackTrace();
             }
             Date finish = ex.getPeriod();
@@ -60,13 +69,22 @@ public class UserServiceDefault implements UserService {
     }
 
     @Override
-    public List<Exposition> filterByPrice(List<Exposition> expositions) throws SQLException, NamingException {
-        expositions.sort((expositionItem, t1) -> {
-            Integer price = expositionItem.getPrice();
-            Integer price2 = t1.getPrice();
-            return price.compareTo(price2);
-        });
-        return expositions;
+    public List<Exposition> sortByPrice(List<Exposition> expositions) {
+        countSort++;
+        if(countSort%2==0)
+            expositions.sort(Comparator.comparingInt(Exposition::getPrice));
+        else
+        expositions.sort(Comparator.comparingInt(Exposition::getPrice).reversed());
+      return expositions;
     }
 
+    @Override
+    public List<Exposition> getLimitExpo(Integer firstRow, Integer rowCount){
+        return expoDao.getLimitRows(firstRow, rowCount);
+    }
+
+    @Override
+    public Integer getCountAllExpo(){
+        return expoDao.getCountAllRows();
+    }
 }
