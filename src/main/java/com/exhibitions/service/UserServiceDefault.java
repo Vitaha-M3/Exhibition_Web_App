@@ -15,7 +15,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class UserServiceDefault implements UserService {
-    ExpositionDaoService expoDao = new ExpositionDaoService();
+
+    private ExpositionDaoService expoDao = new ExpositionDaoService();
     private static final Logger logger = LogManager.getLogger(UserServiceDefault.class);
     long countSort =0;
 
@@ -86,5 +87,13 @@ public class UserServiceDefault implements UserService {
     @Override
     public Integer getCountAllExpo(){
         return expoDao.getCountAllRows();
+    }
+
+    public long getCountSort() {
+        return countSort;
+    }
+
+    public void setCountSort(long countSort) {
+        this.countSort = countSort;
     }
 }

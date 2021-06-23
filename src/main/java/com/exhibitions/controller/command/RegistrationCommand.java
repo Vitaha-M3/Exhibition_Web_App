@@ -48,7 +48,7 @@ public class RegistrationCommand implements Command {
         return map;
     }
 
-    private List<String> validate(String login, String email, String name, String password) {
+      public static List<String> validate(String login, String email, String name, String password) {
         List<String> violations = new ArrayList<>();
         if (!ValidatorInput.validateString(login)) {
             violations.add("The Login field is required!");

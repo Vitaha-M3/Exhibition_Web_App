@@ -9,8 +9,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 public class RegistrationServiceDefault implements RegistrationService {
-    private static final String MESSAGE = "message";
-    private static final Object ERROR_MESSAGE = "User whith this LOGIN is present, come up with another login";
+
     private final UserDaoService userDao = new UserDaoService();
     
     @Override

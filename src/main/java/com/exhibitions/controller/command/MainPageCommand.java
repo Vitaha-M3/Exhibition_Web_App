@@ -20,7 +20,7 @@ public class MainPageCommand implements Command {
     private static final String NO_OF_PAGES = "noOfPages";
     private static final String CURRENT_PAGE_TABLE = "currentPageTable";
 
-    private ExpositionDaoService expoDao = new ExpositionDaoService();
+    private final ExpositionDaoService expoDao = new ExpositionDaoService();
     @Override
     public Map<String, Object> execute(HttpServletRequest request, HttpServletResponse response) throws SQLException, NamingException {
         Map<String, Object> map = new HashMap<>();

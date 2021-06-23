@@ -59,7 +59,6 @@ public class MainServlet extends HttpServlet {
         Map<String, Object> map = command.execute(request, response);
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             request.setAttribute(entry.getKey(), entry.getValue());
-//            request.setCharacterEncoding("UTF-8");
         }
         getServletContext().getRequestDispatcher((String) map.get(PAGE)).forward(request, response);
     }
