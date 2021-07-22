@@ -56,6 +56,7 @@
         <label style="color: red" ><fmt:message key="errorSelectDate"/></label>
     </c:if>
 <table id="tableExpo" cellpadding="5" cellspacing="5">
+<c:if test="${!showMyTickets}">
 <tr>
     <th style="visibility: hidden">    </th>
     <th>
@@ -132,9 +133,32 @@
             </c:forEach>
         </c:otherwise>
     </c:choose>
-</table>
-
     <pagination:pagination/>
+</c:if>
+
+    <!--For tickets -->
+    <c:if test="${showMyTickets}">
+        <h3 align="center"><fmt:message key="myTickets"/></h3>
+        <tr bgcolor="#f0ffff">
+            <th><b> № </b></th>
+            <th><fmt:message key="themeExpo"/></th>
+            <th><fmt:message key="ticketStartDateExpo"/></th>
+            <th><fmt:message key="exposedTo"/></th>
+            <th><fmt:message key="halls"/></th>
+            <th><fmt:message key="ticketPrice"/></th>
+        </tr>
+        <c:forEach var="item" items="${catalogMyTickets}">
+            <tr bgcolor= "#e6e6fa">
+                <td>${item.numberTicket}</td>
+                <td>${item.nameExposition}</td>
+                <td><fmt:formatDate type = "date" value="${item.startExposition}"/></td>
+                <td><fmt:formatDate type = "date" value="${item.periodExposition}"/></td>
+                <td>${item.roomsOnExhibition}</td>
+                <td>${item.priceTicket}UAH</td>
+            </tr>
+        </c:forEach>
+    </c:if>
+</table>
     <%-- TEST BLOCK  --%>
 <%--    <test:nav totalPageCount='5' viewPageCount="3" action="/Exposition"/>--%>
     <%-- TEST BLOCK  --%>
@@ -142,6 +166,12 @@
 
 <div id="userDivRight">
     <h3><fmt:message key="myTickets"/></h3>
+    <c:if test="${userLoggedIn}">
+    <form action="/Exhibition" method="post">
+    <button type="submit" name="command" value="user_service"><fmt:message key="buttonShow"/></button>
+        <input type="hidden" name="getMyTickets" value="true">
+    </form>
+    </c:if>
 </div>
 
 </div>

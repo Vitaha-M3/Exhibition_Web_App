@@ -10,9 +10,9 @@ public class SQLConstants {
     public static final String UPDATE_USER = "UPDATE user SET login = ?, email = ?, password = ?, name = ?,  access_id = 2" +
             "WHERE id = ?;";
     public static final String GET_ALL_USERS = "SELECT * FROM user;";
-//    public static final String FIND_MY_TICKETS = "SELECT orders.id, exposition.name, exposition.period, exposition.rooms, exposition.price " +
-//            "FROM orders JOIN user ON orders.user_id = user.id JOIN exposition ON orders.exposition_id = exposition.id " +
-//            "WHERE status_id=2 and period>now() and user.id = ?;";
+    public static final String FIND_MY_TICKETS = "SELECT orders.id, exposition.name, exposition.date_time, exposition.period, exposition.rooms, exposition.price " +
+            "FROM orders JOIN user ON orders.user_id = user.id JOIN exposition ON orders.exposition_id = exposition.id " +
+            "WHERE status_id=2 and period>now() and user.id = ?;";
 
     /** Script for Room */
     public static final String INSERT_ROOM = "INSERT INTO rooms (id_room, room) VALUES (?, ?);";

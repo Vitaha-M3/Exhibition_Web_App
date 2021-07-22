@@ -2,6 +2,7 @@ package com.exhibitions.controller.command;
 
 import com.exhibitions.dao.serviceDao.ExpositionDaoService;
 import com.exhibitions.entity.Exposition;
+import com.exhibitions.entity.User;
 import com.exhibitions.service.UserServiceDefault;
 
 import javax.naming.NamingException;
@@ -59,6 +60,13 @@ public class UserHomeCommand implements Command {
         if(sortPrice != null){
             request.getSession(true).setAttribute(SORTED_CATALOG_EXPO, userServiceDefault.sortByPrice(expoDao.getAll()));
             pagination(expoDao,map,request,userServiceDefault);
+        }
+
+        //Get my tickets
+        if(request.getParameter("getMyTickets")!=null){
+            Integer userId = ((User) request.getSession().getAttribute("user")).getId();
+            request.setAttribute("showMyTickets", true);
+            map.put("catalogMyTickets",userServiceDefault.getMyTickets(userId));
         }
 
         //Default put in map

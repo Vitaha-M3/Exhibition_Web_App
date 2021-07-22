@@ -1,8 +1,10 @@
 package com.exhibitions.service;
 
 import com.exhibitions.dao.serviceDao.ExpositionDaoService;
+import com.exhibitions.dao.serviceDao.OrderDaoService;
 import com.exhibitions.dao.serviceDao.RoomDaoService;
 import com.exhibitions.entity.Exposition;
+import com.exhibitions.entity.Ticket;
 import com.exhibitions.service.interfaceService.UserService;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -17,6 +19,7 @@ import java.util.*;
 public class UserServiceDefault implements UserService {
 
     private ExpositionDaoService expoDao = new ExpositionDaoService();
+    private OrderDaoService orderDao = new OrderDaoService();
     private static final Logger logger = LogManager.getLogger(UserServiceDefault.class);
     long countSort =0;
 
@@ -29,7 +32,7 @@ public class UserServiceDefault implements UserService {
     public List<String> getAllTheme() throws SQLException, NamingException {
         List<Exposition> allExpo = expoDao.getAll();
         List<String> expoTheme = new ArrayList<>();
-        for (int i =0; i<allExpo.size();i++){
+        for (int i =0; i<allExpo.size(); i++){
             expoTheme.add(allExpo.get(i).getName());
         }
         Set<String> set = new HashSet<>(expoTheme);
@@ -67,6 +70,11 @@ public class UserServiceDefault implements UserService {
             }
         }
         return filteredExpo;
+    }
+
+    @Override
+    public List<Ticket> getMyTickets(Integer user_id){
+        return orderDao.getMyOrderForUser(user_id);
     }
 
     @Override

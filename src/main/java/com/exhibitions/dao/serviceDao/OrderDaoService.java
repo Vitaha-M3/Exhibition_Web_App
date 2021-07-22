@@ -3,7 +3,7 @@ package com.exhibitions.dao.serviceDao;
 import com.exhibitions.dao.DBManager;
 import com.exhibitions.dao.OrderDao;
 import com.exhibitions.entity.Order;
-import com.exhibitions.entity.OrderStatus;
+import com.exhibitions.entity.Ticket;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,7 +11,6 @@ import org.apache.logging.log4j.Logger;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static com.exhibitions.constants.SQLConstants.*;
 
@@ -101,6 +100,32 @@ public class OrderDaoService implements OrderDao {
         return orderId;
     }
 
+    @Override
+    public List<Ticket> getMyOrderForUser(Integer user_id){
+        Connection connection = null;
+        List<Ticket> userOrders = new ArrayList<>();
+        try {
+            connection = DBManager.getConnection();
+            PreparedStatement getUserOrder = connection.prepareStatement(FIND_MY_TICKETS);
+            getUserOrder.setInt(1,user_id);
+            ResultSet rs = getUserOrder.executeQuery();
+            while (rs.next()){
+                Ticket ticket = new Ticket();
+                ticket.setNumberTicket(rs.getInt("id"));
+                ticket.setNameExposition(rs.getString("name"));
+                ticket.setStartExposition(rs.getDate("date_time"));
+                ticket.setPeriodExposition(rs.getDate("period"));
+                ticket.setRoomsOnExhibition(rs.getString("rooms"));
+                ticket.setPriceTicket(rs.getInt("price"));
+                userOrders.add(ticket);
+            }
+        } catch (SQLException e) {
+            logger.log(Level.ERROR, e.getMessage());
+        } finally {
+            DBManager.closeConnection(connection);
+        }
+        return userOrders;
+    }
 
     private void initList(ResultSet set, List<Order> orders) throws SQLException {
         while (set.next()){

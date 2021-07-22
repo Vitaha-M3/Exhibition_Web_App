@@ -7,7 +7,7 @@ public class Order {
 
     private Integer id;
     private Integer user_id;
-    private  Integer billing;
+    private Integer billing;
     private Integer orderStatus_id;
     private Integer exposition_id;
 

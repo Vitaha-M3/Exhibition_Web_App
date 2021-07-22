@@ -75,7 +75,6 @@ public class AdminCommand implements Command {
             String[] rooms = request.getParameterValues("rooms");
             Integer price = Integer.parseInt(request.getParameter("price"));
             String newTheme = request.getParameter("theme");
-            System.out.println(newTheme);
             StringBuilder getAllRooms = new StringBuilder();
             for (String s: rooms) {
                 getAllRooms.append(s).append(", ");

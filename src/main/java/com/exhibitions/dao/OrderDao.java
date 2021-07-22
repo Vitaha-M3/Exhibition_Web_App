@@ -1,6 +1,7 @@
 package com.exhibitions.dao;
 
 import com.exhibitions.entity.Order;
+import com.exhibitions.entity.Ticket;
 
 import java.util.List;
 
@@ -14,4 +15,6 @@ public interface OrderDao {
     boolean updateOrder(Integer id, Integer status_id, Integer user_id, Integer exposition_id);
 
     Integer findOrderIdByUserId(Integer user_id, Integer status_id, Integer exposition_id);
+
+    List<Ticket> getMyOrderForUser(Integer user_id);
 }

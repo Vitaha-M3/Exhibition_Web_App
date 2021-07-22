@@ -1,3 +1,5 @@
+<%@ page import="java.util.Date" %>
+<%@ page import="java.sql.Time" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -45,7 +47,7 @@
                 <input type="text" name="theme" id="theme" required>
                 <br><br/>
                 <label for="dateTime"><fmt:message key="dateTimeOpen"/></label>
-                <input type="datetime-local" name="dateTime" id="dateTime" value="2021-06-25T12:00"  required>
+                <input type="datetime-local" name="dateTime" id="dateTime" value="2021-07-22T12:00"  required>
                 <br><br/>
                 <label for="period"><fmt:message key="exposedTo"/></label>
                 <input type="date" name="period" id="period" required>

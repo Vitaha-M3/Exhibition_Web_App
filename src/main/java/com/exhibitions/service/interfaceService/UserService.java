@@ -1,6 +1,7 @@
 package com.exhibitions.service.interfaceService;
 
 import com.exhibitions.entity.Exposition;
+import com.exhibitions.entity.Ticket;
 
 import javax.naming.NamingException;
 import java.sql.SQLException;
@@ -14,4 +15,5 @@ public interface UserService {
     List<Exposition> sortByPrice(List<Exposition> expositions) throws SQLException, NamingException;
     List<Exposition> getLimitExpo(Integer firstRow, Integer rowCount);
     Integer getCountAllExpo();
+    List<Ticket> getMyTickets(Integer user_id);
 }
